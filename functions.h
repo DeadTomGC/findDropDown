@@ -21,7 +21,7 @@ using namespace cv;
 
 Rect getChangedRegion(Mat image1,Mat image2);
 
-int scanForLine(Mat image,bool scanRight = true,int threshold = 5);
+int scanForLine(Mat image,bool scanRight = true,int threshold = 10,float lineConfidence = 0.95);
 
 
 #endif /* FUNCTIONS_H */

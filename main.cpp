@@ -23,7 +23,7 @@ using namespace cv;
  */
 int main(int argc, char** argv) {
     
-    cout<<"trying opencv\n";
+    
     if( argc != 3)
     {
      cout <<" Usage: windowDetector <image1> <image2>" << endl;
@@ -36,6 +36,7 @@ int main(int argc, char** argv) {
     Mat grey2;
     //Mat blurd;
     int thresh = 5;
+    int squareSize = 20;
     image = imread(argv[1], CV_LOAD_IMAGE_COLOR);   // Read the file
     image2 = imread(argv[2], CV_LOAD_IMAGE_COLOR); 
     if(! image.data || ! image2.data)                              // Check for invalid input
@@ -47,18 +48,55 @@ int main(int argc, char** argv) {
     cv::cvtColor(image,grey,cv::COLOR_RGB2GRAY);
     cv::cvtColor(image2,grey2,cv::COLOR_RGB2GRAY);
     Rect menu = getChangedRegion(grey,grey2);
-    int x = menu.x + menu.width/2;
-    int y = menu.y + menu.height/2;
-    Rect roi(x,y,100,100);
+    int x = menu.x + menu.width/2-squareSize/2;
+    int y = menu.y + menu.height/2-squareSize/2;
+    Rect roi(x,y,squareSize,squareSize);
+    Rect temp;
     int line = -1;
-    for(;roi.x<grey2.size[1];roi.x+=97){
-        line = scanForLine(grey2(roi));
+    int right=0,left=0,top=0,bottom=0;
+    for(;roi.x<grey2.size[1];roi.x+=squareSize-3){
+        line = scanForLine(grey2(roi),true);
         if(line>0){
+            right = line+roi.x;
             break;
         }
     }
-    cout<<"Found at "<<line<<endl;
     
+    temp = roi;
+    for(;roi.y<grey2.size[0];roi.y+=squareSize-3){
+        line = scanForLine(grey2(roi),true);
+        if(line<0){
+            bottom = roi.y+roi.height;
+            break;
+        }
+    }
+    roi = temp;
+    for(;roi.y>0;roi.y-=squareSize-3){
+        line = scanForLine(grey2(roi),true);
+        if(line<0){
+            top = roi.y;
+            break;
+        }
+    }
+    
+    
+    roi = Rect(x,y,squareSize,squareSize);
+    for(;roi.x>0;roi.x-=squareSize-3){
+        line = scanForLine(grey2(roi),false);
+        if(line>0){
+            left = line+roi.x;
+            break;
+        }
+    }
+    
+    
+    
+    
+    cv::rectangle(image2,Rect(left,top,right-left,bottom-top),Scalar(0,0,255));
+    //cout<<" at "<<line<<endl;
+    namedWindow("Line window", WINDOW_AUTOSIZE);
+    imshow("Line window", image2);
+    waitKey(0);
     //Mat cropped = grey(Rect(130,100,130,100));
     //int result = scanForLine(cropped,false);
     //cout<<"Hey, it's at "<<result<<endl;

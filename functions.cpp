@@ -33,16 +33,16 @@ Rect getChangedRegion(Mat image1, Mat image2) {
         }
     }
     
-    namedWindow("Line window", WINDOW_AUTOSIZE);
-    imshow("Line window", output(lb));
-    waitKey(0);
+    //namedWindow("Line window", WINDOW_AUTOSIZE);
+    //imshow("Line window", output(lb));
+    //waitKey(0);
     return lb;
 }
 //--------------------------
 //image must be in greyscale
 //--------------------------
 
-int scanForLine(Mat image, bool scanRight, int threshold) {
+int scanForLine(Mat image, bool scanRight, int threshold,float lineConfidence) {
     int xsize = image.size[1];
     int ysize = image.size[0];
     int dir = (scanRight) ? 1 : -1;
@@ -60,30 +60,31 @@ int scanForLine(Mat image, bool scanRight, int threshold) {
 
         }
     }
-    namedWindow("Line window", WINDOW_AUTOSIZE);
+    //namedWindow("Line window", WINDOW_AUTOSIZE);
 
 
 
     for (int x = start; x != end; x = x + dir) {
-        bool complete = true;
         int sum = 0;
         float avg = 0;
         float pixel = 0;
         for (int y = 0; y < ysize; y++) {
             pixel = 0.5 * bw.at<uchar>(y, x - 1) + 0.5 * bw.at<uchar>(y, x + 1) + bw.at<uchar>(y, x);
-            if (pixel > 255) pixel = 255;
+            if (pixel > 255){ pixel = 255;}
             sum += pixel;
         }
         avg = sum / ((float) ysize);
-        if (avg > 255 * 0.95) {
+        if (avg > 255 * lineConfidence) {
             for (int y = 0; y < ysize; y++) {
                 bw.at<uchar>(y, x) = 125;
             }
-            imshow("Line window", bw);
-            waitKey(0);
+            //imshow("Line window", bw);
+            //waitKey(0);
             return x;
         }
     }
+    //imshow("Line window", bw);
+    //waitKey(0);
     return -1;
 }
 
