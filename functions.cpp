@@ -88,3 +88,72 @@ int scanForLine(Mat image, bool scanRight, int threshold,float lineConfidence) {
     return -1;
 }
 
+Rect quickFindDropDown(Mat image,int squareSize,int x,int y){
+    Rect roi(x,y,squareSize,squareSize);
+    Rect temp;
+    int line = -1,tempLine = -1;
+    int right=0,left=0,top=0,bottom=0;
+    for(;roi.x+roi.width<image.size[1];roi.x+=squareSize-3){
+        line = scanForLine(image(roi),true);
+        if(line>0){
+            right = line+roi.x;
+            break;
+        }
+        
+    }
+    
+    temp = roi;
+    for(;roi.y+roi.height<image.size[0];roi.y+=squareSize-3){
+        tempLine = scanForLine(image(roi),true);
+        if(abs(tempLine-line)>3){
+            bottom = roi.y+roi.height;
+            break;
+        }
+        
+    }
+    roi = temp;
+    for(;roi.y>0;roi.y-=squareSize-3){
+        tempLine = scanForLine(image(roi),true);
+        if(abs(tempLine-line)>3){
+            top = roi.y;
+            break;
+        }
+        
+    }
+    
+    
+    roi = Rect(x,y,squareSize,squareSize);
+    for(;roi.x>0;roi.x-=squareSize-3){
+        line = scanForLine(image(roi),false);
+        if(line>0){
+            left = line+roi.x;
+            break;
+        }
+    }
+    
+    temp = roi;
+    for(;roi.y+roi.height<image.size[0];roi.y+=squareSize-3){
+
+        tempLine = scanForLine(image(roi),false);
+        if(abs(tempLine-line)>3){
+            if(bottom>roi.y+roi.height){
+                bottom = roi.y+roi.height;
+            }
+            break;
+        }
+    }
+
+    roi = temp;
+    for(;roi.y>0;roi.y-=squareSize-3){
+        
+        tempLine = scanForLine(image(roi),false);
+        if(abs(tempLine-line)>3){
+            if(top<roi.y){
+                top = roi.y;
+            }
+            break;
+        }
+    }
+    
+    return Rect(left,top,right-left,bottom-top);
+}

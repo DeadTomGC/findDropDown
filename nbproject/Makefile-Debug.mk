@@ -57,47 +57,47 @@ LDLIBSOPTIONS=-L/usr/local/lib /usr/local/lib/libopencv_calib3d.so /usr/local/li
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_calib3d.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_calib3d.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_contrib.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_contrib.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_core.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_core.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_features2d.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_features2d.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_flann.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_flann.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_gpu.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_gpu.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_highgui.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_highgui.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_imgproc.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_imgproc.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_legacy.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_legacy.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_ml.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_ml.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_nonfree.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_nonfree.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_objdetect.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_objdetect.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_ocl.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_ocl.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_photo.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_photo.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_stitching.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_stitching.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_superres.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_superres.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_video.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_video.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: /usr/local/lib/libopencv_videostab.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: /usr/local/lib/libopencv_videostab.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/functions.o: functions.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -116,7 +116,7 @@ ${OBJECTDIR}/main.o: main.cpp
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
 	${RM} -r ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_objdetect.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_videostab.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_highgui.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_superres.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_ml.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_calib3d.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_flann.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_video.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_features2d.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_core.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_legacy.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_contrib.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_nonfree.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_photo.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_stitching.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_gpu.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_imgproc.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libopencv_ocl.so
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdector
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/windowdetector
 
 # Subprojects
 .clean-subprojects:

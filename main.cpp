@@ -50,49 +50,12 @@ int main(int argc, char** argv) {
     Rect menu = getChangedRegion(grey,grey2);
     int x = menu.x + menu.width/2-squareSize/2;
     int y = menu.y + menu.height/2-squareSize/2;
-    Rect roi(x,y,squareSize,squareSize);
-    Rect temp;
-    int line = -1;
-    int right=0,left=0,top=0,bottom=0;
-    for(;roi.x<grey2.size[1];roi.x+=squareSize-3){
-        line = scanForLine(grey2(roi),true);
-        if(line>0){
-            right = line+roi.x;
-            break;
-        }
-    }
     
-    temp = roi;
-    for(;roi.y<grey2.size[0];roi.y+=squareSize-3){
-        line = scanForLine(grey2(roi),true);
-        if(line<0){
-            bottom = roi.y+roi.height;
-            break;
-        }
-    }
-    roi = temp;
-    for(;roi.y>0;roi.y-=squareSize-3){
-        line = scanForLine(grey2(roi),true);
-        if(line<0){
-            top = roi.y;
-            break;
-        }
-    }
-    
-    
-    roi = Rect(x,y,squareSize,squareSize);
-    for(;roi.x>0;roi.x-=squareSize-3){
-        line = scanForLine(grey2(roi),false);
-        if(line>0){
-            left = line+roi.x;
-            break;
-        }
-    }
+    menu = quickFindDropDown(grey2,squareSize,x,y);
     
     
     
-    
-    cv::rectangle(image2,Rect(left,top,right-left,bottom-top),Scalar(0,0,255));
+    cv::rectangle(image2,menu,Scalar(0,0,255));
     //cout<<" at "<<line<<endl;
     namedWindow("Line window", WINDOW_AUTOSIZE);
     imshow("Line window", image2);

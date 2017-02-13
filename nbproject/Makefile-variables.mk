@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=windowdector
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/windowdector
+CND_ARTIFACT_NAME_Debug=windowdetector
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/windowdetector
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=windowdector.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/windowdector.tar
+CND_PACKAGE_NAME_Debug=windowdetector.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/windowdetector.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=windowdector
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/windowdector
+CND_ARTIFACT_NAME_Release=windowdetector
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/windowdetector
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=windowdector.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/windowdector.tar
+CND_PACKAGE_NAME_Release=windowdetector.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/windowdetector.tar
 #
 # include compiler specific variables
 #

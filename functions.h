@@ -23,6 +23,7 @@ Rect getChangedRegion(Mat image1,Mat image2);
 
 int scanForLine(Mat image,bool scanRight = true,int threshold = 10,float lineConfidence = 0.95);
 
+Rect quickFindDropDown(Mat image,int boxSize,int x,int y);
 
 #endif /* FUNCTIONS_H */
 
